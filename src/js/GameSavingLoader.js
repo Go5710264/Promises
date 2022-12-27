@@ -3,17 +3,11 @@ import json from './json';
 
 export default class GameSavingLoader {
   static load() {
-    read()
-      .then(
-        (response) => {
-          json(response)
-            .then(
-              (resp) => {
-                const GameSaving = JSON.parse(resp);
-                return GameSaving;
-              },
-            );
-        },
-      );
+    return new Promise((resolve) => {
+      read()
+        .then(
+          (response) => resolve(json(response)),
+        );
+    });
   }
 }
