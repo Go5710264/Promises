@@ -1,6 +1,6 @@
 import GameSavingLoader from '../js/GameSavingLoader';
 
-test('getting JSON object', async () => {
+test('getting JSON object', () => {
   const hitmanParameters = {
     id: 9,
     created: 1546300800,
@@ -12,6 +12,7 @@ test('getting JSON object', async () => {
     },
   };
 
-  const hitman = await GameSavingLoader.load();
-  expect(JSON.parse(hitman)).toEqual(hitmanParameters);
+  return GameSavingLoader.load().then(saving => {
+    expect(saving).toEqual(hitmanParameters);
+  })
 });
