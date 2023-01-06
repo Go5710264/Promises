@@ -12,7 +12,7 @@ test('getting JSON object', () => {
     },
   };
 
-  return GameSavingLoader.load().then(saving => {
+  return GameSavingLoader.load().then((saving) => {
     expect(saving).toEqual(hitmanParameters);
-  })
+  });
 });
